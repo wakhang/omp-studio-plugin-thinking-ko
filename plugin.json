@@ -1,0 +1,60 @@
+{
+  "name": "생각 한글 요약",
+  "version": "0.1.0",
+  "description": "에이전트의 생각(영어)을 작업 과정 위에 한글 한두 줄로 요약해 보여 주고, bash·read 같은 도구 카드는 숨깁니다.",
+  "main": "main.js",
+  "renderer": "renderer.js",
+  "styles": "styles.css",
+  "settingsSchema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "title": "켜기",
+        "default": true,
+        "x-order": 1
+      },
+      "model": {
+        "type": "string",
+        "title": "요약 모델",
+        "description": "빠르고 싼 모델 권장. 비우면 claude-haiku-4-5.",
+        "default": "claude-haiku-4-5",
+        "x-order": 2
+      },
+      "hiddenTools": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "title": "숨길 도구",
+        "description": "대화창에서 카드를 숨길 도구 이름",
+        "default": [
+          "bash",
+          "eval",
+          "read",
+          "grep",
+          "glob",
+          "find",
+          "ls",
+          "todo",
+          "wait"
+        ],
+        "x-order": 3
+      },
+      "showOriginal": {
+        "type": "boolean",
+        "title": "영어 원문 블록도 보이기",
+        "default": false,
+        "x-order": 4
+      }
+    }
+  },
+  "id": "thinking-ko",
+  "tags": [
+    "한글",
+    "요약",
+    "생각",
+    "작업과정"
+  ],
+  "usage": "켜 두면 이후 에이전트의 영어 생각을 작업 과정 위에 한글 한두 줄로 요약해 보여 주고, bash·read 같은 도구 카드는 숨깁니다."
+}

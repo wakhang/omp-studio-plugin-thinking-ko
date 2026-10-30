@@ -1,0 +1,34 @@
+/* Korean thinking digest at the top of each "작업 과정" fold */
+.kt-digest {
+  margin: 4px 0 2px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-width: var(--prose-max, 880px);
+}
+.kt-line { display: flex; align-items: flex-start; gap: 6px; font-size: calc(var(--font-size-chat) - 1.5px); line-height: 1.6; }
+.kt-icon { flex: none; opacity: 0.8; }
+.kt-text { flex: 1; min-width: 0; color: var(--fg); }
+.kt-pending { color: var(--fg-subtle); font-style: italic; }
+.kt-err { color: var(--err); font-size: var(--text-xs); }
+.kt-orig-btn {
+  flex: none; margin-top: 2px; padding: 0 6px; height: 18px; border-radius: 4px;
+  border: 1px solid var(--line); background: transparent; color: var(--fg-subtle);
+  font: inherit; font-size: 10px; cursor: pointer; opacity: 0;
+  transition: opacity 0.15s;
+}
+.kt-item:hover .kt-orig-btn, .kt-item.open .kt-orig-btn { opacity: 1; }
+.kt-orig {
+  display: none; white-space: pre-wrap; margin: 2px 0 6px 22px; padding: 4px 10px;
+  border-left: 2px solid var(--line-strong); color: var(--muted);
+  font-size: calc(var(--font-size-chat) - 2px); line-height: 1.6;
+}
+.kt-item.open .kt-orig { display: block; }
+
+/* the English thinking blocks inside the fold body are replaced by the digest */
+.kt-hide-original .process-fold.kt-active .process-body .thinking { display: none; }
+
+/* hidden tool cards (bash, read, grep, …) */
+.tool-card.kt-hidden { display: none; }
+.kt-more { align-self: flex-start; margin-left: 22px; padding: 0 6px; border: none; background: none; color: var(--accent); font: inherit; font-size: var(--text-xs); cursor: pointer; }
+.kt-more:hover { text-decoration: underline; }
